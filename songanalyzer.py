@@ -58,7 +58,7 @@ class Solution:
         for ix, x in enumerate(seenletters):
             if(letternumber[ix]) > 1:
                 retval+=(x+"="+str(letternumber[ix])+", ")
-        return retval + str(rhyming) + " rhyming"
+        return retval + str(rhyming) + " rhyming words"
 
 def main():
     string1 = input()
