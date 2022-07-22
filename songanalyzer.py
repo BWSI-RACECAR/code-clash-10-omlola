@@ -35,6 +35,7 @@ class Solution:
     def song_analyze(self,lyric):
         words = lyric.split(" ")
         rhymes = []
+        addExtra = []
         rhyming = 0
         seenletters = []
         letternumber = []
@@ -42,8 +43,12 @@ class Solution:
             if len(word) >= 3:
                 if word[len(word)-3:len(word)] in rhymes:
                     rhyming+=1
+                    if(addExtra[addExtra.index(word[len(word)-3:len(word)])]):
+                        rhyming+=1
+                        addExtra[addExtra.index(word[len(word)-3:len(word)])] = False
                 else:
                     rhymes.append(word[len(word)-3:len(word)])
+                    addExtra.append(True)
             if word[0] in seenletters:
                 letternumber[seenletters.index(word[0])]+=1
             else:
@@ -53,7 +58,7 @@ class Solution:
         for ix, x in enumerate(seenletters):
             if(letternumber[ix]) > 1:
                 retval+=(x+"="+str(letternumber[ix])+", ")
-        return retval + str(rhyming) + " rhyming words"
+        return retval + str(rhyming) + " rhyming"
 
 def main():
     string1 = input()
