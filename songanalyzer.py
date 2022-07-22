@@ -43,9 +43,9 @@ class Solution:
             if len(word) >= 3:
                 if word[len(word)-3:len(word)] in rhymes:
                     rhyming+=1
-                    if(addExtra[addExtra.index(word[len(word)-3:len(word)])]):
+                    if(addExtra[rhymes.index(word[len(word)-3:len(word)])]):
                         rhyming+=1
-                        addExtra[addExtra.index(word[len(word)-3:len(word)])] = False
+                        addExtra[rhymes.index(word[len(word)-3:len(word)])] = False
                 else:
                     rhymes.append(word[len(word)-3:len(word)])
                     addExtra.append(True)
